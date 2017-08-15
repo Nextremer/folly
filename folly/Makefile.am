@@ -28,15 +28,15 @@ follyincludedir = $(includedir)/folly
 
 nobase_follyinclude_HEADERS = \
 	ApplyTuple.h \
-	Arena.h \
 	Arena-inl.h \
+	Arena.h \
 	Array.h \
 	Assume.h \
 	AtomicBitSet.h \
-	AtomicHashArray.h \
 	AtomicHashArray-inl.h \
-	AtomicHashMap.h \
+	AtomicHashArray.h \
 	AtomicHashMap-inl.h \
+	AtomicHashMap.h \
 	AtomicIntrusiveLinkedList.h \
 	AtomicLinkedList.h \
 	AtomicStruct.h \
@@ -49,15 +49,21 @@ nobase_follyinclude_HEADERS = \
 	Checksum.h \
 	Chrono.h \
 	ClockGettimeWrappers.h \
-	ConcurrentSkipList.h \
+	concurrency/AtomicSharedPtr.h \
+	concurrency/CacheLocality.h \
+	concurrency/ConcurrentHashMap.h \
+	concurrency/CoreCachedSharedPtr.h \
+	concurrency/detail/AtomicSharedPtr-detail.h \
+	concurrency/detail/ConcurrentHashMap-detail.h \
+	concurrency/test/AtomicSharedPtrCounted.h \
 	ConcurrentSkipList-inl.h \
+	ConcurrentSkipList.h \
 	ContainerTraits.h \
 	Conv.h \
+	CPortability.h \
 	CppAttributes.h \
 	CpuId.h \
-	CPortability.h \
-	concurrency/CacheLocality.h \
-	concurrency/CoreCachedSharedPtr.h \
+	Demangle.h \
 	detail/AtomicHashUtils.h \
 	detail/AtomicUnorderedMapUtils.h \
 	detail/AtomicUtils.h \
@@ -83,47 +89,61 @@ nobase_follyinclude_HEADERS = \
 	detail/TryDetail.h \
 	detail/TurnSequencer.h \
 	detail/UncaughtExceptionCounter.h \
-	Demangle.h \
 	DiscriminatedPtr.h \
-	DynamicConverter.h \
-	dynamic.h \
 	dynamic-inl.h \
+	dynamic.h \
+	DynamicConverter.h \
 	Enumerate.h \
 	EvictingCacheMap.h \
 	Exception.h \
 	ExceptionString.h \
-	ExceptionWrapper.h \
 	ExceptionWrapper-inl.h \
+	ExceptionWrapper.h \
 	Executor.h \
 	Expected.h \
-	concurrency/AtomicSharedPtr.h \
-	concurrency/detail/AtomicSharedPtr-detail.h \
 	experimental/AsymmetricMemoryBarrier.h \
 	experimental/AutoTimer.h \
-	experimental/ThreadedRepeatingFunctionRunner.h \
 	experimental/Bits.h \
 	experimental/BitVectorCoding.h \
+	experimental/bser/Bser.h \
 	experimental/CodingDetail.h \
-	experimental/DynamicParser.h \
 	experimental/DynamicParser-inl.h \
-	experimental/ExecutionObserver.h \
+	experimental/DynamicParser.h \
 	experimental/EliasFanoCoding.h \
 	experimental/EnvUtil.h \
 	experimental/EventCount.h \
-	experimental/Instructions.h \
-	experimental/bser/Bser.h \
 	experimental/exception_tracer/ExceptionAbi.h \
 	experimental/exception_tracer/ExceptionCounterLib.h \
 	experimental/exception_tracer/ExceptionTracer.h \
 	experimental/exception_tracer/ExceptionTracerLib.h \
 	experimental/exception_tracer/StackTrace.h \
+	experimental/ExecutionObserver.h \
+	experimental/flat_combining/FlatCombining.h \
+	experimental/flat_combining/test/FlatCombiningExamples.h \
+	experimental/flat_combining/test/FlatCombiningTestHelpers.h \
+	experimental/FlatCombiningPriorityQueue.h \
 	experimental/FunctionScheduler.h \
 	experimental/FutureDAG.h \
+	experimental/hazptr/bench/HazptrBench.h \
+	experimental/hazptr/debug.h \
+	experimental/hazptr/example/LockFreeLIFO.h \
+	experimental/hazptr/example/MWMRSet.h \
+	experimental/hazptr/example/SWMRList.h \
+	experimental/hazptr/example/WideCAS.h \
+	experimental/hazptr/hazptr-impl.h \
+	experimental/hazptr/hazptr.h \
+	experimental/hazptr/memory_resource.h \
+	experimental/hazptr/test/HazptrUse1.h \
+	experimental/hazptr/test/HazptrUse2.h \
+	experimental/Instructions.h \
+	experimental/io/AsyncIO.h \
 	experimental/io/FsUtil.h \
+	experimental/io/HugePages.h \
 	experimental/JemallocNodumpAllocator.h \
 	experimental/JSONSchema.h \
 	experimental/LockFreeRingBuffer.h \
 	experimental/logging/AsyncFileWriter.h \
+	experimental/logging/example/lib.h \
 	experimental/logging/GlogStyleFormatter.h \
 	experimental/logging/ImmediateFileWriter.h \
 	experimental/logging/Init.h \
@@ -141,28 +161,25 @@ nobase_follyinclude_HEADERS = \
 	experimental/logging/printf.h \
 	experimental/logging/RateLimiter.h \
 	experimental/logging/StandardLogHandler.h \
+	experimental/logging/test/TestLogHandler.h \
+	experimental/logging/test/XlogHeader1.h \
+	experimental/logging/test/XlogHeader2.h \
 	experimental/logging/xlog.h \
 	experimental/NestedCommandLineApp.h \
 	experimental/observer/detail/Core.h \
 	experimental/observer/detail/GraphCycleDetector.h \
-	experimental/observer/detail/ObserverManager.h \
 	experimental/observer/detail/Observer-pre.h \
-	experimental/observer/Observable.h \
+	experimental/observer/detail/ObserverManager.h \
 	experimental/observer/Observable-inl.h \
-	experimental/observer/Observer.h \
+	experimental/observer/Observable.h \
 	experimental/observer/Observer-inl.h \
-	experimental/observer/SimpleObservable.h \
+	experimental/observer/Observer.h \
 	experimental/observer/SimpleObservable-inl.h \
+	experimental/observer/SimpleObservable.h \
 	experimental/ProgramOptions.h \
+	experimental/RCURefCount.h \
+	experimental/RCUUtils.h \
 	experimental/ReadMostlySharedPtr.h \
-	experimental/symbolizer/Elf.h \
-	experimental/symbolizer/Elf-inl.h \
-	experimental/symbolizer/ElfCache.h \
-	experimental/symbolizer/Dwarf.h \
-	experimental/symbolizer/LineReader.h \
-	experimental/symbolizer/SignalHandler.h \
-	experimental/symbolizer/StackTrace.h \
-	experimental/symbolizer/Symbolizer.h \
 	experimental/Select64.h \
 	experimental/StampedPtr.h \
 	experimental/StringKeyedCommon.h \
@@ -170,92 +187,128 @@ nobase_follyinclude_HEADERS = \
 	experimental/StringKeyedSet.h \
 	experimental/StringKeyedUnorderedMap.h \
 	experimental/StringKeyedUnorderedSet.h \
+	experimental/symbolizer/Dwarf.h \
+	experimental/symbolizer/Elf-inl.h \
+	experimental/symbolizer/Elf.h \
+	experimental/symbolizer/ElfCache.h \
+	experimental/symbolizer/LineReader.h \
+	experimental/symbolizer/SignalHandler.h \
+	experimental/symbolizer/StackTrace.h \
+	experimental/symbolizer/Symbolizer.h \
+	experimental/symbolizer/test/SignalHandlerTest.h \
+	experimental/test/CodingTestUtils.h \
 	experimental/TestUtil.h \
+	experimental/ThreadedRepeatingFunctionRunner.h \
 	experimental/TLRefCount.h \
 	experimental/TupleOps.h \
 	FBString.h \
 	FBVector.h \
+	fibers/AddTasks-inl.h \
+	fibers/AddTasks.h \
+	fibers/AtomicBatchDispatcher-inl.h \
+	fibers/AtomicBatchDispatcher.h \
+	fibers/BatchDispatcher.h \
+	fibers/Baton-inl.h \
+	fibers/Baton.h \
+	fibers/BoostContextCompatibility.h \
+	fibers/detail/AtomicBatchDispatcher.h \
+	fibers/EventBaseLoopController-inl.h \
+	fibers/EventBaseLoopController.h \
+	fibers/Fiber-inl.h \
+	fibers/Fiber.h \
+	fibers/FiberManager-inl.h \
+	fibers/FiberManager.h \
+	fibers/FiberManagerInternal-inl.h \
+	fibers/FiberManagerInternal.h \
+	fibers/FiberManagerMap.h \
+	fibers/ForEach-inl.h \
+	fibers/ForEach.h \
+	fibers/GenericBaton.h \
+	fibers/GuardPageAllocator.h \
+	fibers/LoopController.h \
+	fibers/Promise-inl.h \
+	fibers/Promise.h \
+	fibers/Semaphore.h \
+	fibers/SimpleLoopController.h \
+	fibers/TimedMutex-inl.h \
+	fibers/TimedMutex.h \
+	fibers/TimeoutController.h \
+	fibers/traits.h \
+	fibers/WhenN-inl.h \
+	fibers/WhenN.h \
 	File.h \
 	FileUtil.h \
 	Fingerprint.h \
 	FixedString.h \
-	folly-config.h \
 	Foreach.h \
+	Format-inl.h \
+	Format.h \
 	FormatArg.h \
 	FormatTraits.h \
-	Format.h \
-	Format-inl.h \
+	Function.h \
+	Functional.h \
 	futures/Barrier.h \
+	futures/detail/Core.h \
+	futures/detail/FSM.h \
+	futures/detail/Types.h \
 	futures/DrivableExecutor.h \
-	futures/Future-pre.h \
-	futures/helpers.h \
-	futures/Future.h \
+	futures/exercises/Koan.h \
 	futures/Future-inl.h \
+	futures/Future-pre.h \
+	futures/Future.h \
 	futures/FutureException.h \
 	futures/FutureSplitter.h \
+	futures/helpers.h \
 	futures/InlineExecutor.h \
 	futures/ManualExecutor.h \
 	futures/Promise-inl.h \
 	futures/Promise.h \
 	futures/QueuedImmediateExecutor.h \
 	futures/ScheduledExecutor.h \
-	futures/SharedPromise.h \
 	futures/SharedPromise-inl.h \
+	futures/SharedPromise.h \
+	futures/test/TestExecutor.h \
+	futures/test/ThenCompileTest.h \
 	futures/ThreadWheelTimekeeper.h \
 	futures/Timekeeper.h \
-	futures/detail/Core.h \
-	futures/detail/FSM.h \
-	futures/detail/Types.h \
-	futures/test/TestExecutor.h \
+	gen/Base-inl.h \
+	gen/Base.h \
+	gen/Combine-inl.h \
+	gen/Combine.h \
+	gen/Core-inl.h \
+	gen/Core.h \
+	gen/File-inl.h \
+	gen/File.h \
+	gen/Parallel-inl.h \
+	gen/Parallel.h \
+	gen/ParallelMap-inl.h \
+	gen/ParallelMap.h \
+	gen/String-inl.h \
+	gen/String.h \
+	gen/test/Bench.h \
+	GlobalThreadPoolList.h \
+	GroupVarint.h \
 	hash/SpookyHashV1.h \
 	hash/SpookyHashV2.h \
-	gen/Base.h \
-	gen/Base-inl.h \
-	gen/Combine.h \
-	gen/Combine-inl.h \
-	gen/Core.h \
-	gen/Core-inl.h \
-	gen/File.h \
-	gen/File-inl.h \
-	gen/Parallel.h \
-	gen/Parallel-inl.h \
-	gen/ParallelMap.h \
-	gen/ParallelMap-inl.h \
-	gen/String.h \
-	gen/String-inl.h \
-	GroupVarint.h \
 	Hash.h \
-	IPAddress.h \
-	IPAddressV4.h \
-	IPAddressV6.h \
-	IPAddressException.h \
 	Indestructible.h \
 	IndexedMemPool.h \
 	init/Init.h \
 	IntrusiveList.h \
-	io/Compression.h \
-	io/Cursor.h \
-	io/Cursor-inl.h \
-	io/IOBuf.h \
-	io/IOBufQueue.h \
-	io/RecordIO.h \
-	io/RecordIO-inl.h \
-	io/TypedIOBuf.h \
-	io/ShutdownSocketSet.h \
 	io/async/AsyncPipe.h \
-	io/async/AsyncTimeout.h \
-	io/async/AsyncTransport.h \
-	io/async/AsyncUDPServerSocket.h \
-	io/async/AsyncUDPSocket.h \
 	io/async/AsyncServerSocket.h \
 	io/async/AsyncSignalHandler.h \
 	io/async/AsyncSocket.h \
 	io/async/AsyncSocketBase.h \
-	io/async/AsyncSSLSocket.h \
 	io/async/AsyncSocketException.h \
+	io/async/AsyncSSLSocket.h \
+	io/async/AsyncTimeout.h \
+	io/async/AsyncTransport.h \
+	io/async/AsyncUDPServerSocket.h \
+	io/async/AsyncUDPSocket.h \
 	io/async/DecoratedAsyncTransportWrapper.h \
-	io/async/DelayedDestructionBase.h \
 	io/async/DelayedDestruction.h \
+	io/async/DelayedDestructionBase.h \
 	io/async/DestructorCheck.h \
 	io/async/EventBase.h \
 	io/async/EventBaseLocal.h \
@@ -264,23 +317,21 @@ nobase_follyinclude_HEADERS = \
 	io/async/EventFDWrapper.h \
 	io/async/EventHandler.h \
 	io/async/EventUtil.h \
-	io/async/NotificationQueue.h \
 	io/async/HHWheelTimer.h \
+	io/async/NotificationQueue.h \
+	io/async/Request.h \
+	io/async/ScopedEventBaseThread.h \
 	io/async/ssl/OpenSSLUtils.h \
 	io/async/ssl/SSLErrors.h \
 	io/async/ssl/TLSDefinitions.h \
-	io/async/Request.h \
 	io/async/SSLContext.h \
 	io/async/SSLOptions.h \
-	io/async/ScopedEventBaseThread.h \
-	io/async/TimeoutManager.h \
-	io/async/VirtualEventBase.h \
-	io/async/WriteChainAsyncTransportWrapper.h \
-	io/async/test/AsyncSSLSocketTest.h \
+	io/async/test/AsyncSocketTest.h \
 	io/async/test/AsyncSocketTest2.h \
+	io/async/test/AsyncSSLSocketTest.h \
 	io/async/test/BlockingSocket.h \
-	io/async/test/MockAsyncSocket.h \
 	io/async/test/MockAsyncServerSocket.h \
+	io/async/test/MockAsyncSocket.h \
 	io/async/test/MockAsyncSSLSocket.h \
 	io/async/test/MockAsyncTransport.h \
 	io/async/test/MockAsyncUDPSocket.h \
@@ -291,6 +342,22 @@ nobase_follyinclude_HEADERS = \
 	io/async/test/TimeUtil.h \
 	io/async/test/UndelayedDestruction.h \
 	io/async/test/Util.h \
+	io/async/TimeoutManager.h \
+	io/async/VirtualEventBase.h \
+	io/async/WriteChainAsyncTransportWrapper.h \
+	io/Compression.h \
+	io/Cursor-inl.h \
+	io/Cursor.h \
+	io/IOBuf.h \
+	io/IOBufQueue.h \
+	io/RecordIO-inl.h \
+	io/RecordIO.h \
+	io/ShutdownSocketSet.h \
+	io/TypedIOBuf.h \
+	IPAddress.h \
+	IPAddressException.h \
+	IPAddressV4.h \
+	IPAddressV6.h \
 	Iterator.h \
 	json.h \
 	Launder.h \
@@ -305,11 +372,12 @@ nobase_follyinclude_HEADERS = \
 	Malloc.h \
 	MapUtil.h \
 	Math.h \
+	memory/UninitializedMemoryHacks.h \
 	Memory.h \
 	MemoryMapping.h \
-	memory/UninitializedMemoryHacks.h \
-	MicroSpinLock.h \
+	Merge.h \
 	MicroLock.h \
+	MicroSpinLock.h \
 	MoveWrapper.h \
 	MPMCPipeline.h \
 	MPMCQueue.h \
@@ -319,7 +387,6 @@ nobase_follyinclude_HEADERS = \
 	Padded.h \
 	Partial.h \
 	PicoSpinLock.h \
-	Portability.h \
 	portability/Asm.h \
 	portability/Atomic.h \
 	portability/BitsFunctexcept.h \
@@ -344,8 +411,8 @@ nobase_follyinclude_HEADERS = \
 	portability/Stdio.h \
 	portability/Stdlib.h \
 	portability/String.h \
-	portability/Syslog.h \
 	portability/SysFile.h \
+	portability/Syslog.h \
 	portability/SysMembarrier.h \
 	portability/SysMman.h \
 	portability/SysResource.h \
@@ -358,11 +425,15 @@ nobase_follyinclude_HEADERS = \
 	portability/TypeTraits.h \
 	portability/Unistd.h \
 	portability/Windows.h \
+	Portability.h \
 	Preprocessor.h \
 	PriorityMPMCQueue.h \
 	ProducerConsumerQueue.h \
-	Random.h \
+	python/futures.h \
+	python/NotificationQueueExecutor.h \
+	python/test/simple.h \
 	Random-inl.h \
+	Random.h \
 	Range.h \
 	Replaceable.h \
 	RWSpinLock.h \
@@ -370,27 +441,28 @@ nobase_follyinclude_HEADERS = \
 	ScopeGuard.h \
 	SharedMutex.h \
 	Shell.h \
-	Singleton.h \
 	Singleton-inl.h \
+	Singleton.h \
 	SingletonThreadLocal.h \
-	SmallLocks.h \
+	SingletonVault_c.h \
 	small_vector.h \
+	SmallLocks.h \
 	SocketAddress.h \
 	sorted_vector_types.h \
 	SparseByteSet.h \
 	SpinLock.h \
+	ssl/detail/OpenSSLThreading.h \
+	ssl/detail/SSLSessionImpl.h \
 	ssl/Init.h \
 	ssl/OpenSSLCertUtils.h \
 	ssl/OpenSSLHash.h \
+	ssl/OpenSSLLockTypes.h \
 	ssl/OpenSSLPtrTypes.h \
 	ssl/OpenSSLVersionFinder.h \
 	ssl/SSLSession.h \
-	ssl/OpenSSLLockTypes.h \
-	ssl/detail/OpenSSLThreading.h \
-	ssl/detail/SSLSessionImpl.h \
-	stats/detail/Bucket.h \
 	stats/BucketedTimeSeries-defs.h \
 	stats/BucketedTimeSeries.h \
+	stats/detail/Bucket.h \
 	stats/Histogram-defs.h \
 	stats/Histogram.h \
 	stats/MultiLevelTimeSeries-defs.h \
@@ -398,17 +470,22 @@ nobase_follyinclude_HEADERS = \
 	stats/TimeseriesHistogram-defs.h \
 	stats/TimeseriesHistogram.h \
 	stop_watch.h \
-	String.h \
 	String-inl.h \
+	String.h \
 	Subprocess.h \
 	Synchronized.h \
+	test/BatonTestHelpers.h \
+	test/DeterministicSchedule.h \
 	test/FBStringTestBenchmarks.cpp.h \
 	test/FBVectorTestBenchmarks.cpp.h \
 	test/function_benchmark/benchmark_impl.h \
 	test/function_benchmark/test_functions.h \
-	test/SynchronizedTestLib.h \
+	test/SingletonTestStructs.h \
+	test/SocketAddressTestHelper.h \
 	test/SynchronizedTestLib-inl.h \
+	test/SynchronizedTestLib.h \
 	test/TestUtils.h \
+	test/TokenBucketTest.h \
 	ThreadCachedArena.h \
 	ThreadCachedInt.h \
 	ThreadId.h \
@@ -416,17 +493,16 @@ nobase_follyinclude_HEADERS = \
 	ThreadName.h \
 	TimeoutQueue.h \
 	TokenBucket.h \
+	tracing/StaticTracepoint-ELFx86.h \
 	tracing/StaticTracepoint.h \
 	Traits.h \
 	Try-inl.h \
 	Try.h \
-	Unicode.h \
-	Function.h \
-	Functional.h \
 	UncaughtExceptions.h \
+	Unicode.h \
 	Unit.h \
-	Uri.h \
 	Uri-inl.h \
+	Uri.h \
 	Utility.h \
 	Varint.h \
 	VersionCheck.h
