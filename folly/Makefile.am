@@ -467,7 +467,10 @@ libfolly_la_SOURCES = \
 	Checksum.cpp \
 	ClockGettimeWrappers.cpp \
 	concurrency/CacheLocality.cpp \
+	detail/Futex.cpp \
 	detail/IPAddress.cpp \
+	detail/StaticSingletonManager.cpp \
+	detail/ThreadLocalDetail.cpp \
 	dynamic.cpp \
 	ExceptionWrapper.cpp \
 	Executor.cpp \
@@ -481,13 +484,11 @@ libfolly_la_SOURCES = \
 	futures/QueuedImmediateExecutor.cpp \
 	futures/ThreadWheelTimekeeper.cpp \
 	futures/test/TestExecutor.cpp \
-	detail/Futex.cpp \
-	detail/StaticSingletonManager.cpp \
-	detail/ThreadLocalDetail.cpp \
-	hash/SpookyHashV1.cpp \
-	hash/SpookyHashV2.cpp \
+	GlobalThreadPoolList.cpp \
 	GroupVarint.cpp \
 	GroupVarintTables.cpp \
+	hash/SpookyHashV1.cpp \
+	hash/SpookyHashV2.cpp \
 	IPAddress.cpp \
 	IPAddressV4.cpp \
 	IPAddressV6.cpp \
